@@ -22,13 +22,29 @@
 # ---------------------------------------------------------------------
 # 1. Détermination du dossier racine du projet
 # ---------------------------------------------------------------------
+# ---------------------------------------------------------------------
+# 1. Détermination du dossier racine du projet (version robuste)
+# ---------------------------------------------------------------------
 args <- commandArgs(trailingOnly = FALSE)
 file_arg <- grep("^--file=", args, value = TRUE)
-script_path <- normalizePath(sub("^--file=", "", file_arg))
-project_root <- normalizePath(file.path(dirname(script_path), ".."))
 
-# On force le répertoire de travail à la racine du projet afin que les
-# chemins relatifs restent stables, que l'appel soit manuel ou planifié.
+if (length(file_arg) > 0) {
+  # Cas : exécution via Rscript
+  script_path <- normalizePath(sub("^--file=", "", file_arg))
+  project_root <- normalizePath(file.path(dirname(script_path), ".."))
+} else {
+  # Cas : exécution dans RStudio
+  project_root <- getwd()
+}
+
+# Vérification explicite
+if (!dir.exists(project_root)) {
+  stop(
+    sprintf("Impossible de déterminer le dossier projet. Chemin invalide : %s", project_root),
+    call. = FALSE
+  )
+}
+
 setwd(project_root)
 
 # ---------------------------------------------------------------------

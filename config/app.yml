@@ -31,7 +31,7 @@ naming:
   # 4 = type_fichier
   # 5 = version éventuelle
   # 6 = extension
-  regex: "^([A-Za-z0-9_\-]+)-(\d{8})-(\d{2})-([A-Za-z0-9_\-]+?)(?:_v(\d+))?\.(csv|xlsx)$"
+  regex: "^([A-Za-z0-9_\\-]+)-(\\d{8})-(\\d{2})-([A-Za-z0-9_\\-]+?)(?:_v(\\d+))?\\.(csv|xlsx)$"
 
 features:
   archive_raw_enabled: true

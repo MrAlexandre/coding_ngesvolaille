@@ -1,19 +1,13 @@
 # =====================================================================
-
 # utils_config.R
-
-# ---------------------------------------------------------------------
-
+# --------------------------------------------------------------------
 # Fonctions de chargement et de validation minimale de la configuration.
-
 # Version corrigée avec gestion explicite des erreurs.
 
 # =====================================================================
 
 # ---------------------------------------------------------------------
-
 # Chargement de la configuration YAML
-
 # ---------------------------------------------------------------------
 
 load_config <- function(config_file = "config/app.yml") {
@@ -40,22 +34,14 @@ call. = FALSE
 )
 
 # Vérification 3 : validation de la structure
-
 validate_config(config)
-
 return(config)
 }
-
 # ---------------------------------------------------------------------
-
 # Validation minimale de la structure du YAML
-
-# ---------------------------------------------------------------------
-
+# --------------------------------------------------------------------
 validate_config <- function(config) {
-
 # Vérification des sections principales
-
 required_top_level <- c(
 "project",
 "paths",
