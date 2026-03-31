@@ -1,0 +1,47 @@
+project:
+  name: "NGESvolaille"
+  timezone: "Europe/Paris"
+
+paths:
+  drop_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test"
+  quarantine_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/02_Quarantaine"
+  processing_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/03_A_traiter"
+  archive_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/04_Archives"
+  analysis_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/05_Pour_analyses"
+  logs_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/logs"
+  registry_db: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/registry/registry.sqlite"
+
+ingestion:
+  id_prefix: "ING"
+  batch_hours:
+    - "12:30"
+    - "16:30"
+
+allowed_extensions:
+  - "csv"
+  - "xlsx"
+
+naming:
+  # Exemple volontairement simple pour la V1.
+  # À adapter dès que convention exacte est figée.
+  # Groupes capturés :
+  # 1 = site
+  # 2 = date AAAAMMJJ
+  # 3 = batiment
+  # 4 = type_fichier
+  # 5 = version éventuelle
+  # 6 = extension
+  regex: "^([A-Za-z0-9_\-]+)-(\d{8})-(\d{2})-([A-Za-z0-9_\-]+?)(?:_v(\d+))?\.(csv|xlsx)$"
+
+features:
+  archive_raw_enabled: true
+  qc_enabled: false
+  transformation_enabled: false
+  promotion_enabled: false
+  reporting_enabled: false
+  notifications_enabled: false
+
+versions:
+  protocol: "0.1.0"
+  qc_rules: "0.1.0"
+  scripts: "0.1.0"
