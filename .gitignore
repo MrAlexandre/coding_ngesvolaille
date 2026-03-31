@@ -1,0 +1,44 @@
+# =========================
+# R - fichiers temporaires
+# =========================
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+
+# =========================
+# Logs et fichiers temporaires
+# =========================
+*.log
+*.tmp
+*.temp
+
+# =========================
+# Fichiers système Windows
+# =========================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# Fichiers système Mac (au cas où)
+# =========================
+.DS_Store
+
+# =========================
+# VS Code (personnel)
+# =========================
+.vscode/settings.json
+
+# =========================
+# Données brutes (à adapter)
+# =========================
+data_raw/
+data_temp/
+
+# =========================
+# Sorties volumineuses
+# =========================
+*.csv
+*.parquet
+*.feather
