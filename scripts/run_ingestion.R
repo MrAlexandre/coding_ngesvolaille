@@ -285,15 +285,25 @@ run_ingestion_pipeline <- function() {
 # ---------------------------------------------------------------------
 # 5. Point d'entrée du script
 # ---------------------------------------------------------------------
-main <- function() {
+main <- function(interactive_mode = interactive()) {
   tryCatch(
     {
       run_ingestion_pipeline()
-      quit(save = "no", status = 0)
+
+      if (!interactive_mode) {
+        quit(save = "no", status = 0)
+      }
+
+      invisible(TRUE)
     },
     error = function(e) {
       message("ERREUR FATALE DU RUN : ", e$message)
-      quit(save = "no", status = 1)
+
+      if (!interactive_mode) {
+        quit(save = "no", status = 1)
+      }
+
+      invisible(FALSE)
     }
   )
 }
