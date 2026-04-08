@@ -78,24 +78,26 @@ update_file_metadata_from_name <- function(conn, file_id, parsed) {
 }
 
 update_file_status <- function(conn, file_id, global_status, last_step_code, last_step_status,
-                               motif_ko = NULL, action_attendue = NULL) {
+                               motif_ko = NA_character_, action_attendue = NA_character_) {
   query <- "
     UPDATE suivi_depots
     SET global_status = ?, last_step_code = ?, last_step_status = ?, motif_ko = ?, action_attendue = ?
     WHERE file_id = ?
   "
-
+  
   DBI::dbExecute(
-    conn, query,
-    params = list(global_status, last_step_code, last_step_status, motif_ko, action_attendue, file_id)
+    conn = conn,
+    statement = query,
+    params = list(
+      global_status,
+      last_step_code,
+      last_step_status,
+      motif_ko,
+      action_attendue,
+      file_id
+    )
   )
-
-  invisible(TRUE)
-}
-
-update_file_hash <- function(conn, file_id, sha256) {
-  query <- "UPDATE suivi_depots SET sha256 = ? WHERE file_id = ?"
-  DBI::dbExecute(conn, query, params = list(sha256, file_id))
+  
   invisible(TRUE)
 }
 
