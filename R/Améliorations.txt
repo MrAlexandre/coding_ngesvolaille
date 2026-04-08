@@ -1,0 +1,3 @@
+Pour V2 : 
+Permettre non sensibilité à la case pour les nom de fichiers : travailer regex pour type d'indicateurs : 
+([a-z]+) -> ([A-Za-z]+)

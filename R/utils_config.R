@@ -5,6 +5,40 @@
 # Version corrigée avec gestion explicite des erreurs.
 
 # =====================================================================
+# ---------------------------------------------------------------------
+# Recherche du fichier YAML 
+find_config_file <- function(filename = "app.yml", max_depth = 10) {
+  current_dir <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+  
+  for (i in seq_len(max_depth)) {
+    candidate <- file.path(current_dir, "config", filename)
+    if (file.exists(candidate)) {
+      return(candidate)
+    }
+    
+    # remonter d’un niveau
+    parent <- dirname(current_dir)
+    
+    # stop si on atteint la racine
+    if (parent == current_dir) {
+      break
+    }
+    
+    current_dir <- parent
+  }
+  
+  stop("Fichier de configuration introuvable dans l’arborescence.")
+}
+# ---------------------------------------------------------------------
+
+# ---------------------------------------------------------------------
+# Récupération du chemin du fichier YAML 
+# ---------------------------------------------------------------------
+get_config <- function() {
+  config_path <- find_config_file("app.yml")
+  load_config(config_path)
+}
+# ---------------------------------------------------------------------
 
 # ---------------------------------------------------------------------
 # Chargement de la configuration YAML

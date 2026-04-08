@@ -28,7 +28,7 @@ parse_filename <- function(filename, regex_pattern) {
     ))
   }
 
-  # Lecture sécurisée des groupes capturés.
+  # Lecture sécurisée des groupes capturés
   parsed <- list(
     site = m[, 2],
     date_reference = as.Date(m[, 3], format = "%Y%m%d"),

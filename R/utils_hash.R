@@ -1,8 +1,8 @@
 # =====================================================================
 # utils_hash.R
 # ---------------------------------------------------------------------
-# Calcul de l'empreinte SHA-256 d'un fichier.
-# Sert à la traçabilité, à l'intégrité et à la détection robuste.
+# Calcul de l'empreinte SHA-256 d'un fichier
+# Sert à la traçabilité, à l'intégrité et à la détection
 # =====================================================================
 
 compute_sha256 <- function(file_path) {

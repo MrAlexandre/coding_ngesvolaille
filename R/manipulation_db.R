@@ -8,6 +8,29 @@
 
 
 # ==========================================================
+# RAPIDE : Vider la base
+library(DBI)
+library(RSQLite)
+
+con <- dbConnect(
+  SQLite(),
+  "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/registry/registry.sqlite"
+)
+
+dbExecute(con, "DELETE FROM runs;")
+dbExecute(con, "DELETE FROM journal_etapes;")
+dbExecute(con, "DELETE FROM suivi_depots;")
+
+dbDisconnect(con)
+
+logs_dir <- "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/logs"
+# voir ce qu’il y a avant suppression :
+log_files <- list.files(logs_dir, full.names = T)
+file.remove(log_files)
+
+# ==========================================================
+
+# ==========================================================
 library(DBI)
 library(RSQLite)
 
@@ -57,6 +80,13 @@ con <- dbConnect(
   "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/registry/registry.sqlite"
 )
 
+# exploration 
+dbGetQuery(con, "
+  SELECT *
+  FROM runs
+  ORDER BY started_at DESC
+  LIMIT 10;
+")
 # Vérifier avant suppression
 dbGetQuery(con, "SELECT COUNT(*) AS n_runs FROM runs;")
 
@@ -82,7 +112,7 @@ dbGetQuery(con, "
   SELECT *
   FROM journal_etapes
   ORDER BY event_time DESC
-  LIMIT 1;
+  LIMIT 10;
 ")
 
 # Vérifier avant
@@ -118,7 +148,7 @@ dbGetQuery(con, "SELECT COUNT(*) AS n_files FROM suivi_depots;")
 dbGetQuery(con, "
   SELECT *
   FROM suivi_depots
-  LIMIT 1;
+  LIMIT 10;
 ")
 
 # Voir les colonnes

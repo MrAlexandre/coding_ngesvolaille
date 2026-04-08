@@ -24,11 +24,9 @@ Les trois tables sont :
 
 
 
-runs
-
-journal\_etapes
-
-suivi\_depots
+1. runs
+2. journal\_etapes
+3. suivi\_depots
 
 
 

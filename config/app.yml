@@ -3,7 +3,7 @@ project:
   timezone: "Europe/Paris"
 
 paths:
-  drop_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test"
+  drop_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/Depot"
   quarantine_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/02_Quarantaine"
   processing_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/03_A_traiter"
   archive_root: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/04_Archives"
@@ -31,7 +31,7 @@ naming:
   # 4 = type_fichier
   # 5 = version éventuelle
   # 6 = extension
-  regex: "^([A-Za-z0-9_\\-]+)-(\\d{8})-(\\d{2})-([A-Za-z0-9_\\-]+?)(?:_v(\\d+))?\\.(csv|xlsx)$"
+  regex: "^([A-Za-z0-9]+)-([0-9]{8})-([0-9]{2})-([a-z]+)-v([0-9]{2})\\.(csv|xlsx)$"
 
 features:
   archive_raw_enabled: true
