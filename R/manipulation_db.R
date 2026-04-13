@@ -187,7 +187,26 @@ length(log_files)
 
 # Supprimer les fichiers .log. Sélectionne spécifiquement les fichiers avec extension ".log"
 log_files <- list.files(logs_dir, pattern = "\\.log$", full.names = TRUE)
-file.remove(log_files)
-
 # Vérifier après suppression
 list.files(logs_dir)
+
+file.remove(log_files)
+
+
+
+
+# ==========================================================
+# Exploration des sorties du pipeline
+# ----------------------------------------------------------
+# exploration 
+con <- dbConnect(
+  SQLite(),
+  "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/registry/registry.sqlite"
+)
+dbGetQuery(con, "
+  SELECT source_filename, site, batiment, date_reference, file_type, version_num,
+         global_status, last_step_code, last_step_status
+  FROM suivi_depots
+  ORDER BY detected_at DESC
+  LIMIT 10;
+")

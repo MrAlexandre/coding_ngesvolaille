@@ -88,6 +88,8 @@ for (file_info in new_files) {
     parsed = qc02$data
   )
   
+  print(">>> QC02 OK - mise à jour statut")
+  
   update_file_status(
     conn = conn,
     file_id = file_info$file_id,
