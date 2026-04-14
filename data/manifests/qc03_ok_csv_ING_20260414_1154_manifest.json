@@ -1,0 +1,15 @@
+{
+  "ingestion_id": "ING_20260414_1154",
+  "file_name": "qc03_ok_csv.csv",
+  "file_basename": "qc03_ok_csv",
+  "file_path": "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/_Coding_NGESvolaille/données pour test/qc03/qc03_ok_csv.csv",
+  "file_extension": "csv",
+  "file_size_bytes": 14,
+  "file_mtime": "2026-04-14 11:22:03.696014",
+  "sha256": "78c6bb0f6cb535e59e498d11fbd9b3a2ed945604cf6e8adfad6e8901c7ad0a88",
+  "quarantine_reason": null,
+  "partner_name": null,
+  "detected_at": "2026-04-14 11:54:02.64043",
+  "source_root": "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/04_Données/01_Zootech. Dépot/test/Depot",
+  "manifest_timestamp": "2026-04-14 11:54:02.640513"
+}

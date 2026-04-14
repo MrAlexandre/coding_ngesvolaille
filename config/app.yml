@@ -40,8 +40,11 @@ features:
   promotion_enabled: false
   reporting_enabled: false
   notifications_enabled: false
-
 versions:
   protocol: "0.1.0"
   qc_rules: "0.1.0"
   scripts: "0.1.0"
+manifests:
+  output_dir: "C:/Users/alexandre.martin/OneDrive - SOBAC/Projet NGESvolaille - Documents/_Coding_NGESvolaille/data/manifests"
+  
+  
